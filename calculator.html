@@ -1,0 +1,355 @@
+<!doctype html>
+<html>
+ <head>
+ <title>Truck
+     </title>
+
+ <meta charset="utf-8" />
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+ <script type="text/javascript" src="jquery.min.js"></script>
+
+
+ <style>
+
+/*
+ #circle {
+ width:200px;
+ height:200px;
+ background-color:green;
+ border-radius:100px;
+ }
+
+ .square {
+ width:300px;
+ height:300px;
+ background-color:red;
+ margin-top:10px;
+ }
+*/
+     
+
+ </style>
+
+ </head>
+
+ <body>
+
+<!--
+ <p>this is some text.</p>
+
+ <button id="fade">Fade Out</button>
+<button id="fadeIn">Fade In</button>
+-->
+<select id ="truckValue" onchange="loadBody(this);">
+  <option value="none">Select Truck</option>    
+  <option value="769D">769D</option>
+  <option value="770">770</option>
+  <option value="770G">770G</option>
+  <option value="771D">771D</option>
+  <option value="772">772</option>
+  <option value="772G">772G</option>
+  <option value="773D">773D</option>
+  <option value="773E">773E</option>
+  <option value="773F">773F</option>
+  <option value="773G">773G</option>
+  <option value="775E">775E</option>
+  <option value="775F">775F</option>
+  <option value="775G">775G</option>
+  <option value="777D">777D</option>
+  <option value="777F">777F</option>
+  <option value="777G">777G</option>
+  <option value="785C">785C</option>
+  <option value="785D">785D</option>
+  <option value="785G">785G</option>
+  <option value="789C">789C</option>
+
+  <option value="789D">789D</option>
+  <option value="793D">793D</option>
+  <option value="793F">793F</option>
+  <option value="795F">795F</option>
+  <option value="797B">797B</option>
+  <option value="797F">797F</option>
+  <option value="MT4400">MT4400</option>
+  <option value="MT5300">MT5300</option>
+    
+</select>
+<select id ="bodyType" onchange="bodyType(this);"style ="display:none;">
+</select>
+<br />
+<h2>Selected Value: <span id="weight"></span></h2>
+     
+
+ <script>
+//      This bit of code is the regex to get the value from the array (m3)       
+     function loadBody(truck){
+         //Need to reset the value of the second list
+         
+         if(truck.value == '785C'){
+             var arr = ["Dual Slope body - 78 m3", "Wide DS body - 88 m3","DS w/7I-4795 SB body - 91 m3", "DS w/7I-4795 SB & 156-5481 Tail Ext body - 96 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '785D'){
+             var arr = ["Dual Slope body - 78 m3","X body - 85 m3","Wide DS body - 88 m3","DS w/7I-4795 SB body - 91 m3","X w/334-8630 SB body - 95 m3","DS w/7I-4795 SB & 156-5481 Tail Ext body - 96 m3","MSD II body - 99 m3","X w/334-8631 SB body - 103 m3","MSD II w/244-6210 SB body - 107 m3","MSD II w/244-6220 SB body - 114 m3","Combi Body body - 120 m3","Gateless Coal body - 139 m3","Combi Body w/389-9540 SB body - 140 m3","G Coal w/335-7730 SB body - 152 m3","Gateless Coal body - 165 m3","G Coal w/336-5590 SB body - 182 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '785G'){
+             var arr = ["X2 (HD) body - 78 m3","MSD II Body body - 100 m3","DS body - 108 m3","Combi body - 153 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '789C'){
+             var arr = ["Dual Slope body - 104 m3","Flat Floor body - 119 m3","MSD II body - 126 m3","MSD II body - 133 m3","MSD II body - 141 m3","MSD II body - 148 m3","Gateless Coal Size I body - 182 m3","Gateless Coal Size II body - 201 m3","Gateless Coal Size III body - 208 m3","Gateless Coal Size IV body - 233 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '789D'){
+             var arr = ["DS body - 108 m3","DS w/344-7341 Liner body - 108 m3","DS w/356-6040 SB body - 123 m3","X body - 123 m3","MSD II body - 130 m3","X w/365-7810 SB body - 131 m3","DS w/356-6040 SB & 356-6050 Tail Ext body - 132 m3","X w/365-7820 SB body - 139 m3","MSD II w/383-4920 SB body - 144 m3","HP body - 144 m3","Combi body - 153 m3","MSD II w/383-4930 SB body - 159 m3","Combi w/381-9600 SB body - 185 m3","Gateless Coal  body - 191 m3","Gateless Coal w/382-0330 SB body - 214 m3","Gateless Coal w/383-0340 SB  body - 237 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '793D'){
+             var arr = ["Dual Slope body - 128 m3","DS w/8X-9130 SB body - 147 m3","X body - 148 m3","X w/ 296-2793 SB body - 156 m3","DS w/8X-9130 SB & 155-4740 Tail Ext. body - 156.5 m3","MSD II body - 159 m3","MSDII ITC (Newmont) body - 160 m3","X w/ 288-1000 SB body - 161 m3","X w/ 348-2200 SB body - 165 m3","MSD II body - 176 m3","MSD II body - 190 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '793F'){
+             var arr = ["793F BHPB body body - 140 m3","X body - 149 m3","X w/296-2793 SB body - 156 m3","X w/288-1000 SB body - 161 m3","MSD II    body - 161 m3","X w/348-2200 SB body - 165 m3","HP (High Performance) body - 165 m3","HE (High Efficiency) body - 170 m3","MSD II body - 176 m3","MSD II body - 191 m3","Gateless Coal body - 236 m3","G Coal w/335-6001 SB body - 263 m3","Gateless Coal body - 278 m3","G Coal w/335-6003 SB body - 307 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == 'MT4400'){
+             var arr = ["Conventional Ext. Canopy body - 163 m3","Conventional Std Canopy body - 163 m3","Conventional Ext. Canopy body - 188 m3","Conventional Std Canopy body - 188 m3","Conventional Ext. Canopy body - 222 m3","Conventional Std Canopy body - 222 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '795F'){
+             var arr = ["MSD II body - 181 m3","MSD w/315-8520 SB body - 206 m3","MSD II body - 224 m3","MSD w/315-8550 SB body - 242 m3","MSD w/307-3603 SB body - 248 m3","MSD w/307-3604 SB body - 253 m3","Gateless Coal body - 350 m3","G Coal w/325-2996 SB body - 380 m3","G Coal w/325-2998 SB body - 410 m3","G Coal w/339-6600 SB body - 426 m3","Coal Body (PRB) body - 426 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == 'MT5300'){
+             var arr = ["HE Body body - 228 m3","HE Body body - 253 m3","HE Body body - 290 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '797B'){
+             var arr = ["MSD II (Oil Sands) body - 241 m3","MSD II  body - 252 m3","MSD II body - 268 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '797F'){
+             var arr = ["MSD II Oil Sands body - 240 m3","Oil Sands Specific body - 241 m3","MSD II body - 251 m3","HP body - 252 m3","MSD w/291-4390 SB body - 266 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '777G'){
+             var arr = ["Dual Slope- no liner body - 60.1 m3","Dual Slope- 16mm liner body - 59.5 m3","Dual Slope - Rubber Liner body - 57 m3","Flat Floor - no liner (X-Body) body - 64.1 m3","Flat Floor - Heavy Duty liner body - 63.3 m3","Flat Floor - Rubber liner body - 60.9 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '777F'){
+             var arr = ["Dual Slope- no liner body - 60.1 m3","Dual Slope- 16mm liner body - 59.5 m3","Rubber Liner body - 57 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '777D'){
+             var arr = ["Dual Slope- no liner body - 60.1 m3","Dual Slope- 16mm liner (Tail Only) body - 59.7 m3","Dual Slope- 16mm liner  body - 59.5 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '775G'){
+             var arr = ["Dual Slope - no liner body - 42.2 m3","Dual Slope - steel liner body - 41.7 m3","Flat Floor - no liner body - 42.2 m3","Flat Floor - steel liner body - 41.6 m3","Flat Floor -  rubber liner body - 39.8 m3","Quarry Body - no liner body - 41.9 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '775F'){
+             var arr = ["Dual Slope- medium impact liner body - 42.5 m3","Dual Slope- high impact liner body - 42.4 m3","Dual Slope- heavy duty high impact liner body - 42.1 m3","Dual Slope- high impact rubber liner body - 40.7 m3","Dual Slope- heavy duty high impact rubber liner body - 40.4 m3","Flat Floor- medium impact liner body - 41.9 m3","Flat Floor- high impact liner body - 41.8 m3","Flat Floor- heavy duty high impact liner body - 41.5 m3","Flat Floor- high impact rubber liner body - 40.1 m3","Flat Floor- heavy duty high impact rubber liner body - 39.8 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '775E'){
+             var arr = ["Dual Slope- no liner body - 41.2 m3","Flat Floor- steel lined body body - 41.2 m3","Quarry Body- no liner body - 41.5 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '773F'){
+             var arr = ["Dual Slope- medium impact liner body - 35.5 m3","Dual Slope- high impact liner body - 35.4 m3","Dual Slope- heavy duty high impact liner body - 35.2 m3","Dual Slope- high impact rubber liner body - 33.8 m3","Dual Slope- heavy duty high impact rubber liner body - 33.6 m3","Flat Floor- medium impact liner body - 35.1 m3","Flat Floor- high impact liner body - 35 m3","Flat Floor- heavy duty high impact liner body - 34.7 m3","Flat Floor- high impact rubber liner body - 33.4 m3","Flat Floor- heavy duty high impact rubber liner body - 33.2 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '773G'){
+             var arr = ["Dual Slope - no liner body - 35.8 m3","Dual Slope - steel liner body - 35.2 m3","Flat Floor - no liner body - 35.5 m3","Flat Floor - steel liner body - 35 m3","Flat Floor -  rubber liner body - 33.3 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '773E'){
+             var arr = ["Dual Slope- No liner body body - 35.2 m3","Dual Slope- steel lined body (tail only) body - 35.1 m3","Dual Slope- steel lined body body - 35.2 m3","Flat Floor- steel lined body body - 35.5 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '773D'){
+             var arr = ["Dual Slope- No liner body body - 35.2 m3","Dual Slope- steel lined body (tail only) body - 35.1 m3","Dual Slope- steel lined body body - 35.2 m3","Flat Floor- steel lined body body - 35.5 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '772G'){
+             var arr = ["Dual Slope - no liner body - 31.2 m3","Dual Slope - steel liner body - 30.9 m3","Flat Floor - no liner body - 31.3 m3","Flat Floor - steel liner body - 31 m3","Flat Floor -  rubber liner body - 29.7 m3","Quarry Body - no liner body - 31.1 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '772'){
+             var arr = ["Dual Slope- low impact liner body - 31.4 m3","Dual Slope- medium impact liner body - 31.3 m3","Dual Slope- high impact liner body - 31.2 m3","Dual Slope- heavy duty high impact liner body - 32 m3","Dual Slope- high impact rubber liner body - 30.3 m3","Dual Slope- heavy duty high impact rubber liner body - 30.3 m3","Flat Floor- low impact liner body - 31.3 m3","Flat Floor- medium impact liner body - 31.3 m3","Flat Floor- high impact liner body - 31.3 m3","Flat Floor- heavy duty high impact liner body - 31.3 m3","Flat Floor- high impact rubber liner body - 29.4 m3","Flat Floor- heavy duty high impact rubber liner body - 29.4 m3","Quarry Body-no liner body - 31.3 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '771D'){
+             var arr = ["Quarry Body - no liner body - 27.5 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '770G'){
+             var arr = ["Dual Slope - no liner body - 25.2 m3","Dual Slope - steel liner body - 24.8 m3","Flat Floor - no liner body - 25.2 m3","Flat Floor - steel liner body - 24.9 m3","Flat Floor -  rubber liner body - 23.6 m3","Quarry Body - no liner body - 24.9 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '770'){
+             var arr = ["Dual Slope- low impact liner body - 25.4 m3","Dual Slope- medium impact liner body - 25.3 m3","Dual Slope- high impact liner body - 25.2 m3","Dual Slope- heavy duty high impact liner body - 25.1 m3","Dual Slope- high impact rubber liner body - 23.1 m3","Dual Slope- heavy duty high impact rubber liner body - 23.1 m3","Flat Floor- low impact liner body - 25.4 m3","Flat Floor- medium impact liner body - 25.3 m3","Flat Floor- high impact liner body - 25.2 m3","Flat Floor- heavy duty high impact liner body - 25.1 m3","Flat Floor- high impact rubber liner body - 23.1 m3","Flat Floor- heavy duty high impact rubber liner body - 23.1 m3","Quarry Body-no liner body - 25.1 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }else if(truck.value == '769D'){
+             var arr = ["Dual Slope - no liner body - 24.2 m3","Dual Slope - steel liner body - 24.2 m3","Flat Floor - no liner body - 24.2 m3","Flat Floor - steel liner body - 24.2 m3"];
+     
+            var sel = $('#bodyType').show();
+            $(arr).each(function() {
+                sel.append($("<option>").attr('value',this).text(this));
+                
+            });
+        }
+         
+         
+         
+        
+        
+     }
+     function bodyType(selected){
+         var txt= selected.value;
+        
+         var splits = txt.split("-");
+         var rweight = "";
+         if(splits != null && splits.length){
+             rweight = splits[splits.length-1];
+         }
+         rweight = rweight.replace(" m3","");
+         rweight = rweight.replace("m3","");
+         $('#weight').html(rweight);         
+     }
+ 
+
+     
+// $("#fade").click(function() {
+//
+// $("p").fadeOut(100, function(){
+//     alert("complete");
+// });
+//
+//
+// }); 
+//$("#fadeIn").click(function() {
+//
+//    $("p").fadeIn(200);
+//
+//
+// });
+
+ </script>
+
+
+
+ </body>
+</html>
